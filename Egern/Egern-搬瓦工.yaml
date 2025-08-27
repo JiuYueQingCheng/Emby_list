@@ -25,7 +25,7 @@ policy_groups:
     name: 手动选择
     type: select
     urls:
-    - https://sub.store/download/%E6%90%AC%E7%93%A6%E5%B7%A5?target=Egern
+    - https://xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx #填写你的机场订阅地址(删除前面所有的#号)
     icon: https://github.com/Repcz/Repcz.github.io/raw/main/docs/egern/Photo/Egern.png
     hidden: false
 - select:
