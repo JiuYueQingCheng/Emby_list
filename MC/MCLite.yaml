@@ -5,7 +5,7 @@ proxies:
 proxy-providers:
   AP1:
     type: http
-    url: https://xianlu1.nezha.su/nezha666/2609b799abecd3decbc595d03d1b0f26
+    url: https://xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx #填写你的机场订阅地址(删除前面所有的#号)
     interval: 86400
     health-check:
       enable: true
