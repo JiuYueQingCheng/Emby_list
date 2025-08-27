@@ -1,0 +1,355 @@
+port:
+
+proxies:
+
+proxy-providers:
+  AP1:
+    type: http
+    url: https://xianlu1.nezha.su/nezha666/2609b799abecd3decbc595d03d1b0f26
+    interval: 86400
+    health-check:
+      enable: true
+      url: http://latency-test.skk.moe/endpoint
+      interval: 600
+    override:
+      additional-prefix: "[AP1]"
+      
+#  AP2:
+#    type: http
+#    url: https://xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx #填写你的机场订阅地址(删除前面所有的#号)
+#    interval: 86400
+#    health-check:
+#      enable: true
+#      url: http://latency-test.skk.moe/endpoint
+#      interval: 600
+#    override:
+#      additional-prefix: "[AP2]"
+
+proxy-groups:
+  - name: 美国节点
+    type: smart
+    # policy-priority: "Premium:0.9;SG:1.3"
+    uselightgbm: false
+    collectdata: false
+    health-check: 
+      enable: true
+      url: http://latency-test.skk.moe/endpoint
+      interval: 600
+    strategy: sticky-sessions
+    filter: '^(?=.*((?i)🇺🇸|美国|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|(\b(US|United States)\b))).*$'
+    include-all: true
+
+  - name: 日本节点
+    type: smart
+    # policy-priority: "Premium:0.9;SG:1.3"
+    uselightgbm: false
+    collectdata: false
+    health-check: 
+      enable: true
+      url: http://latency-test.skk.moe/endpoint
+      interval: 600
+    strategy: sticky-sessions
+    filter: '^(?=.*((?i)🇯🇵|日本|川日|东京|大阪|泉日|埼玉|(\b(JP|Japan)\b))).*$'
+    include-all: true
+
+  - name: 韩国节点
+    type: smart
+    # policy-priority: "Premium:0.9;SG:1.3"
+    uselightgbm: false
+    collectdata: false
+    health-check: 
+      enable: true
+      url: http://latency-test.skk.moe/endpoint
+      interval: 600
+    strategy: sticky-sessions
+    filter: '^(?=.*((?i)🇰🇷|韩国|韓|首尔|(\b(KR|Korea)\b))).*$'
+    include-all: true
+
+  - name: 新加坡节点
+    type: smart
+    # policy-priority: "Premium:0.9;SG:1.3"
+    uselightgbm: false
+    collectdata: false
+    health-check: 
+      enable: true
+      url: http://latency-test.skk.moe/endpoint
+      interval: 600
+    strategy: sticky-sessions
+    filter: '^(?=.*((?i)🇸🇬|新加坡|狮|(\b(SG|Singapore)\b))).*$'
+    include-all: true
+
+  - name: 香港节点
+    type: smart
+    # policy-priority: "Premium:0.9;SG:1.3"
+    uselightgbm: false
+    collectdata: false
+    health-check: 
+      enable: true
+      url: http://latency-test.skk.moe/endpoint
+      interval: 600
+    strategy: sticky-sessions
+    filter: '^(?=.*((?i)🇭🇰|香港|(\b(HK|Hong)\b))).*$'
+    include-all: true
+
+  - name: 自动选择
+    type: url-test
+    url: http://latency-test.skk.moe/endpoint
+    interval: 600
+    tolerance: 100
+    include-all: true
+
+  - name: 手动选择
+    type: select
+    url: http://latency-test.skk.moe/endpoint
+    interval: 600
+    include-all: true
+
+  - name: ChatGPT
+    type: select
+    url: http://latency-test.skk.moe/endpoint
+    interval: 600  
+    proxies:
+      - 美国节点
+      - 日本节点
+      - 韩国节点
+      - 新加坡节点
+      - 香港节点
+      - 自动选择
+      - 手动选择
+      - DIRECT
+
+  - name: Github
+    type: select
+    url: http://latency-test.skk.moe/endpoint
+    interval: 600  
+    proxies:
+      - 美国节点
+      - 日本节点
+      - 韩国节点
+      - 新加坡节点
+      - 香港节点
+      - 自动选择
+      - 手动选择
+      - DIRECT
+           
+  - name: Youtube
+    type: select
+    url: http://latency-test.skk.moe/endpoint
+    interval: 600  
+    proxies:
+      - 美国节点
+      - 日本节点
+      - 韩国节点
+      - 新加坡节点
+      - 香港节点
+      - 自动选择
+      - 手动选择
+      - DIRECT
+           
+  - name: Google
+    type: select
+    url: http://latency-test.skk.moe/endpoint
+    interval: 600  
+    proxies:
+      - 美国节点
+      - 日本节点
+      - 韩国节点
+      - 新加坡节点
+      - 香港节点
+      - 自动选择
+      - 手动选择
+      - DIRECT
+            
+  - name: Netflix
+    type: select
+    url: http://latency-test.skk.moe/endpoint
+    interval: 600  
+    proxies:
+      - 美国节点
+      - 日本节点
+      - 韩国节点
+      - 新加坡节点
+      - 香港节点
+      - 自动选择
+      - 手动选择
+      - DIRECT
+
+  - name: Telegram
+    type: select
+    url: http://latency-test.skk.moe/endpoint
+    interval: 600  
+    proxies:
+      - 美国节点
+      - 日本节点
+      - 韩国节点
+      - 新加坡节点
+      - 香港节点
+      - 自动选择
+      - 手动选择
+      - DIRECT
+
+  - name: 代理网站
+    type: select
+    url: http://latency-test.skk.moe/endpoint
+    interval: 600  
+    proxies:
+      - 美国节点
+      - 日本节点
+      - 韩国节点
+      - 新加坡节点
+      - 香港节点
+      - 自动选择
+      - 手动选择
+      - DIRECT
+
+  - name: 代理游戏
+    type: select
+    url: http://latency-test.skk.moe/endpoint
+    interval: 600  
+    proxies:
+      - 美国节点
+      - 日本节点
+      - 韩国节点
+      - 新加坡节点
+      - 香港节点
+      - 自动选择
+      - 手动选择
+      - DIRECT
+
+  - name: Apple
+    type: select
+    url: http://latency-test.skk.moe/endpoint
+    interval: 600  
+    proxies:
+      - DIRECT
+      - 美国节点
+      - 日本节点
+      - 韩国节点
+      - 新加坡节点
+      - 香港节点
+      
+  - name: Microsoft
+    type: select
+    url: http://latency-test.skk.moe/endpoint
+    interval: 600  
+    proxies:
+      - DIRECT
+      - 美国节点
+      - 日本节点
+      - 韩国节点
+      - 新加坡节点
+      - 香港节点
+
+  - name: 漏网之鱼
+    type: select
+    url: http://latency-test.skk.moe/endpoint
+    interval: 600  
+    proxies:
+      - 美国节点
+      - 日本节点
+      - 韩国节点
+      - 新加坡节点
+      - 香港节点
+      - 自动选择
+      - 手动选择
+      - DIRECT
+
+rules:
+# LAN
+  - IP-CIDR,192.168.0.0/16,DIRECT,no-resolve
+  - IP-CIDR,10.0.0.0/8,DIRECT,no-resolve
+  - IP-CIDR,172.16.0.0/12,DIRECT,no-resolve
+  - IP-CIDR,127.0.0.0/8,DIRECT,no-resolve
+  - IP-CIDR,100.64.0.0/10,DIRECT,no-resolve
+  - IP-CIDR,198.18.0.0/16,DIRECT,no-resolve
+  - IP-CIDR,224.0.0.0/4,DIRECT,no-resolve  
+  - IP-CIDR6,::1/128,DIRECT,no-resolve
+  - IP-CIDR6,fc00::/7,DIRECT,no-resolve
+  - IP-CIDR6,fd00::/8,DIRECT,no-resolve
+  - IP-CIDR6,fe80::/10,DIRECT,no-resolve
+  - DOMAIN-KEYWORD,de1.staryuki,手动选择
+  - DOMAIN-KEYWORD,emby.younoyes,手动选择
+  - DOMAIN-KEYWORD,hka-emby.aliz,手动选择
+  - DOMAIN-KEYWORD,kessoku-bando.biliblili,手动选择
+  - DOMAIN-KEYWORD,a1.handoumedia,手动选择
+  - DOMAIN-KEYWORD,mebimmer,手动选择
+  - DOMAIN-KEYWORD,emby.zn,手动选择
+  - DOMAIN-KEYWORD,media.nijigem,手动选择
+  - DOMAIN-KEYWORD,lite.cn2gias,手动选择
+  - DOMAIN-KEYWORD,misty,手动选择
+  - DOMAIN-KEYWORD,emby.hohai,手动选择
+  - DOMAIN-KEYWORD,abc.tufei,手动选择
+  - DOMAIN-KEYWORD,public.shrekmedia,手动选择
+  - DOMAIN-KEYWORD,onatoshi.114514,手动选择
+  - DOMAIN-KEYWORD,zoxfree.3767483,手动选择
+  - DOMAIN-KEYWORD,cf.5msky,手动选择
+  - DOMAIN-KEYWORD,bai.yezi,手动选择
+  - DOMAIN-KEYWORD,ciallo,手动选择
+  - DOMAIN-KEYWORD,emby.wenjian,手动选择
+  - DOMAIN-KEYWORD,jsq.vban,手动选择
+  - DOMAIN-KEYWORD,emby.violet,手动选择
+  - DOMAIN-KEYWORD,free.28,手动选择
+  - DOMAIN-KEYWORD,emby.bangumi,手动选择
+  - DOMAIN-KEYWORD,ch.feiyue,手动选择
+  - DOMAIN-KEYWORD,emby.feiniu,手动选择
+  - DOMAIN-KEYWORD,liminalnet.com,手动选择
+  - DOMAIN-KEYWORD,lemby.me,手动选择
+  - DOMAIN-KEYWORD,gy.meowfly,手动选择
+  - DOMAIN-KEYWORD,yezi.my,手动选择
+  - DOMAIN-KEYWORD,kfc.v50,手动选择
+  - DOMAIN-KEYWORD,pieclip.okbap,手动选择
+  - DOMAIN-KEYWORD,staryuki.me,手动选择
+  - DOMAIN-KEYWORD,heisi.org,手动选择
+  - DOMAIN-KEYWORD,mjji,手动选择
+  - DOMAIN-KEYWORD,mefun,手动选择
+  - DOMAIN-KEYWORD,aiinyue,手动选择
+  - DOMAIN-KEYWORD,wenjian,手动选择
+  - DOMAIN-KEYWORD,diaojinping,手动选择
+  - DOMAIN-KEYWORD,nangua,手动选择
+
+
+
+# 全球拦截
+  - GEOSITE,ad,REJECT
+# 直连
+  - GEOSITE,private,DIRECT
+  - GEOSITE,games-cn,DIRECT
+  - GEOSITE,apple-cn,DIRECT
+# Telegram
+  - GEOIP,telegram,Telegram,no-resolve
+  - GEOSITE,telegram,Telegram
+# ChatGPT
+  - GEOSITE,ai,ChatGPT
+  - GEOSITE,onedrive,ChatGPT
+# Github
+  - GEOSITE,github,Github
+# Netflix
+  - GEOIP,netflix,Netflix,no-resolve
+  - GEOSITE,netflix,Netflix
+# Youtube
+  - GEOIP,youtube,Youtube,no-resolve
+  - GEOSITE,youtube,Youtube
+# Google
+  - GEOIP,google,Google,no-resolve
+  - GEOSITE,google,Google
+# facebook
+  - GEOIP,facebook,代理网站,no-resolve
+  - GEOSITE,facebook,代理网站
+# twitter
+  - GEOIP,twitter,代理网站,no-resolve
+  - GEOSITE,twitter,代理网站
+# games
+  - GEOSITE,games,代理游戏
+# GFWList
+  - GEOSITE,proxy,代理网站
+# Apple
+  - GEOIP,apple,Apple
+  - GEOSITE,apple,Apple
+# Microsoft
+  - GEOSITE,microsoft,Microsoft
+# 国内网站
+  - GEOSITE,microsoft-cn,DIRECT
+  - GEOIP,CN,DIRECT,no-resolve
+  - GEOSITE,cn,DIRECT
+# 其它
+  - MATCH,漏网之鱼  
