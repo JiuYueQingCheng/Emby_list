@@ -240,6 +240,18 @@ proxy-groups:
       - 新加坡节点
       - 香港节点
 
+  - name: Emby
+    type: select
+    url: http://latency-test.skk.moe/endpoint
+    interval: 600  
+    proxies:
+      - DIRECT
+      - 美国节点
+      - 日本节点
+      - 韩国节点
+      - 新加坡节点
+      - 香港节点
+
   - name: 漏网之鱼
     type: select
     url: http://latency-test.skk.moe/endpoint
@@ -267,45 +279,45 @@ rules:
   - IP-CIDR6,fc00::/7,DIRECT,no-resolve
   - IP-CIDR6,fd00::/8,DIRECT,no-resolve
   - IP-CIDR6,fe80::/10,DIRECT,no-resolve
-  - DOMAIN-KEYWORD,de1.staryuki,手动选择
-  - DOMAIN-KEYWORD,emby.younoyes,手动选择
-  - DOMAIN-KEYWORD,hka-emby.aliz,手动选择
-  - DOMAIN-KEYWORD,kessoku-bando.biliblili,手动选择
-  - DOMAIN-KEYWORD,a1.handoumedia,手动选择
-  - DOMAIN-KEYWORD,mebimmer,手动选择
-  - DOMAIN-KEYWORD,emby.zn,手动选择
-  - DOMAIN-KEYWORD,media.nijigem,手动选择
-  - DOMAIN-KEYWORD,lite.cn2gias,手动选择
-  - DOMAIN-KEYWORD,misty,手动选择
-  - DOMAIN-KEYWORD,emby.hohai,手动选择
-  - DOMAIN-KEYWORD,abc.tufei,手动选择
-  - DOMAIN-KEYWORD,public.shrekmedia,手动选择
-  - DOMAIN-KEYWORD,onatoshi.114514,手动选择
-  - DOMAIN-KEYWORD,zoxfree.3767483,手动选择
-  - DOMAIN-KEYWORD,cf.5msky,手动选择
-  - DOMAIN-KEYWORD,bai.yezi,手动选择
-  - DOMAIN-KEYWORD,ciallo,手动选择
-  - DOMAIN-KEYWORD,emby.wenjian,手动选择
-  - DOMAIN-KEYWORD,jsq.vban,手动选择
-  - DOMAIN-KEYWORD,emby.violet,手动选择
-  - DOMAIN-KEYWORD,free.28,手动选择
-  - DOMAIN-KEYWORD,emby.bangumi,手动选择
-  - DOMAIN-KEYWORD,ch.feiyue,手动选择
-  - DOMAIN-KEYWORD,emby.feiniu,手动选择
-  - DOMAIN-KEYWORD,liminalnet.com,手动选择
-  - DOMAIN-KEYWORD,lemby.me,手动选择
-  - DOMAIN-KEYWORD,gy.meowfly,手动选择
-  - DOMAIN-KEYWORD,yezi.my,手动选择
-  - DOMAIN-KEYWORD,kfc.v50,手动选择
-  - DOMAIN-KEYWORD,pieclip.okbap,手动选择
-  - DOMAIN-KEYWORD,staryuki.me,手动选择
-  - DOMAIN-KEYWORD,heisi.org,手动选择
-  - DOMAIN-KEYWORD,mjji,手动选择
-  - DOMAIN-KEYWORD,mefun,手动选择
-  - DOMAIN-KEYWORD,aiinyue,手动选择
-  - DOMAIN-KEYWORD,wenjian,手动选择
-  - DOMAIN-KEYWORD,diaojinping,手动选择
-  - DOMAIN-KEYWORD,nangua,手动选择
+  - DOMAIN-KEYWORD,de1.staryuki,Emby
+  - DOMAIN-KEYWORD,emby.younoyes,Emby
+  - DOMAIN-KEYWORD,hka-emby.aliz,Emby
+  - DOMAIN-KEYWORD,kessoku-bando.biliblili,Emby
+  - DOMAIN-KEYWORD,a1.handoumedia,Emby
+  - DOMAIN-KEYWORD,mebimmer,Emby
+  - DOMAIN-KEYWORD,emby.zn,Emby
+  - DOMAIN-KEYWORD,media.nijigem,Emby
+  - DOMAIN-KEYWORD,lite.cn2gias,Emby
+  - DOMAIN-KEYWORD,misty,Emby
+  - DOMAIN-KEYWORD,emby.hohai,Emby
+  - DOMAIN-KEYWORD,abc.tufei,Emby
+  - DOMAIN-KEYWORD,public.shrekmedia,Emby
+  - DOMAIN-KEYWORD,onatoshi.114514,Emby
+  - DOMAIN-KEYWORD,zoxfree.3767483,Emby
+  - DOMAIN-KEYWORD,cf.5msky,Emby
+  - DOMAIN-KEYWORD,bai.yezi,Emby
+  - DOMAIN-KEYWORD,ciallo,Emby
+  - DOMAIN-KEYWORD,emby.wenjian,Emby
+  - DOMAIN-KEYWORD,jsq.vban,Emby
+  - DOMAIN-KEYWORD,emby.violet,Emby
+  - DOMAIN-KEYWORD,free.28,Emby
+  - DOMAIN-KEYWORD,emby.bangumi,Emby
+  - DOMAIN-KEYWORD,ch.feiyue,Emby
+  - DOMAIN-KEYWORD,emby.feiniu,Emby
+  - DOMAIN-KEYWORD,liminalnet.com,Emby
+  - DOMAIN-KEYWORD,lemby.me,Emby
+  - DOMAIN-KEYWORD,gy.meowfly,Emby
+  - DOMAIN-KEYWORD,yezi.my,Emby
+  - DOMAIN-KEYWORD,kfc.v50,Emby
+  - DOMAIN-KEYWORD,pieclip.okbap,Emby
+  - DOMAIN-KEYWORD,staryuki.me,Emby
+  - DOMAIN-KEYWORD,heisi.org,Emby
+  - DOMAIN-KEYWORD,mjji,Emby
+  - DOMAIN-KEYWORD,mefun,Emby
+  - DOMAIN-KEYWORD,aiinyue,Emby
+  - DOMAIN-KEYWORD,wenjian,Emby
+  - DOMAIN-KEYWORD,diaojinping,Emby
+  - DOMAIN-KEYWORD,nangua,Emby
 
 
 
