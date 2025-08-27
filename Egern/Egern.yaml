@@ -1,0 +1,280 @@
+ipv6: false
+vif_only: true
+hijack_dns:
+- '*:53'
+geoip_db_url: https://raw.githubusercontent.com/Loyalsoldier/geoip/release/Country.mmdb
+asn_db_url: https://raw.githubusercontent.com/Loyalsoldier/geoip/release/GeoLite2-ASN.mmdb
+proxy_latency_test_url: http://1.1.1.1/generate_204
+direct_latency_test_url: http://connectivitycheck.platform.hicloud.com/generate_204
+dns:
+  bootstrap:
+  - system
+  upstreams:
+    Domestic-DNS:
+    - 223.5.5.5
+    - 119.29.29.29
+  forward:
+  - wildcard:
+      match: '*'
+      value: Domestic-DNS
+  hosts:
+    iosapps.itunes.apple.com:
+    - iosapps.itunes.apple.com.download.ks-cdn.com
+policy_groups:
+- external:
+    name: 手动选择
+    type: select
+    urls:
+    - https://sub.store/download/%E6%90%AC%E7%93%A6%E5%B7%A5?target=Egern
+    icon: https://github.com/Repcz/Repcz.github.io/raw/main/docs/egern/Photo/Egern.png
+    hidden: false
+- select:
+    name: 国外网站
+    policies:
+    - 香港节点
+    - 美国节点
+    - 狮城节点
+    - 日本节点
+    - 台湾节点
+    - 手动选择
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Global.png
+- select:
+    name: 国际媒体
+    policies:
+    - 香港节点
+    - 美国节点
+    - 狮城节点
+    - 日本节点
+    - 台湾节点
+    - 手动选择
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/YouTube.png
+- select:
+    name: 微软服务
+    policies:
+    - 香港节点
+    - 美国节点
+    - 狮城节点
+    - 日本节点
+    - 台湾节点
+    - 手动选择
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Microsoft.png
+- select:
+    name: 谷歌服务
+    policies:
+    - 香港节点
+    - 美国节点
+    - 狮城节点
+    - 日本节点
+    - 台湾节点
+    - 手动选择
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Google_Search.png
+- select:
+    name: 电报消息
+    policies:
+    - 香港节点
+    - 美国节点
+    - 狮城节点
+    - 日本节点
+    - 台湾节点
+    - 手动选择
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Telegram.png
+- select:
+    name: 推特消息
+    policies:
+    - 香港节点
+    - 美国节点
+    - 狮城节点
+    - 日本节点
+    - 台湾节点
+    - 手动选择
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Twitter.png
+- select:
+    name: AI
+    policies:
+    - 香港节点
+    - 美国节点
+    - 狮城节点
+    - 日本节点
+    - 台湾节点
+    - 手动选择
+    icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/OpenAI.png
+- select:
+    name: 游戏平台
+    policies:
+    - 香港节点
+    - 美国节点
+    - 狮城节点
+    - 日本节点
+    - 台湾节点
+    - 手动选择
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Game.png
+- select:
+    name: Emby
+    policies:
+    - 手动选择
+    flatten: true
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Emby.png
+- select:
+    name: 兜底分流
+    policies:
+    - 香港节点
+    - 美国节点
+    - 狮城节点
+    - 日本节点
+    - 台湾节点
+    - 手动选择
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Final.png
+- auto_test:
+    name: 香港节点
+    policies:
+    - 手动选择
+    flatten: true
+    filter: (?i)🇭🇰|香港|(\b(HK|Hong)\b)
+    tolerance: 0
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hong_Kong.png
+- auto_test:
+    name: 美国节点
+    policies:
+    - 手动选择
+    flatten: true
+    filter: (?i)🇺🇸|美国|洛杉矶|圣何塞|(\b(US|United States)\b)
+    tolerance: 0
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png
+- auto_test:
+    name: 狮城节点
+    policies:
+    - 手动选择
+    flatten: true
+    filter: (?i)🇸🇬|新加坡|狮|(\b(SG|Singapore)\b)
+    tolerance: 0
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Singapore.png
+- auto_test:
+    name: 日本节点
+    policies:
+    - 手动选择
+    flatten: true
+    filter: (?i)🇯🇵|日本|东京|(\b(JP|Japan)\b)
+    tolerance: 0
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Japan.png
+- auto_test:
+    name: 台湾节点
+    policies:
+    - 手动选择
+    flatten: true
+    filter: (?i)🇨🇳|🇹🇼|台湾|(\b(TW|Tai|Taiwan)\b)
+    tolerance: 0
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/China.png
+rules:
+- ssid:
+    match: NETGEAR
+    policy: DIRECT
+    disabled: false
+- rule_set:
+    match: https://github.com/Repcz/Tool/raw/X/Egern/Rules/Direct.yaml
+    policy: DIRECT
+- rule_set:
+    match: https://github.com/Repcz/Tool/raw/X/Egern/Rules/Reject.yaml
+    policy: REJECT
+- rule_set:
+    match: https://github.com/Repcz/Tool/raw/X/Egern/Rules/AI.yaml
+    policy: AI
+- rule_set:
+    match: https://github.com/Repcz/Tool/raw/X/Egern/Rules/Github.yaml
+    policy: 微软服务
+- rule_set:
+    match: https://github.com/Repcz/Tool/raw/X/Egern/Rules/OneDrive.yaml
+    policy: 微软服务
+- rule_set:
+    match: https://github.com/Repcz/Tool/raw/X/Egern/Rules/Microsoft.yaml
+    policy: 微软服务
+- rule_set:
+    match: https://github.com/Repcz/Tool/raw/X/Egern/Rules/YouTube.yaml
+    policy: 谷歌服务
+- rule_set:
+    match: https://github.com/Repcz/Tool/raw/X/Egern/Rules/Google.yaml
+    policy: 谷歌服务
+- rule_set:
+    match: https://github.com/Repcz/Tool/raw/X/Egern/Rules/Telegram.yaml
+    policy: 电报消息
+- rule_set:
+    match: https://github.com/Repcz/Tool/raw/X/Egern/Rules/Twitter.yaml
+    policy: 推特消息
+- rule_set:
+    match: https://github.com/Repcz/Tool/raw/X/Egern/Rules/Game.yaml
+    policy: 游戏平台
+- rule_set:
+    match: https://raw.githubusercontent.com/JiuYueQingCheng/Emby_list/refs/heads/main/Rule/Emby.list
+    policy: Emby
+    disabled: false
+- rule_set:
+    match: https://github.com/Repcz/Tool/raw/X/Egern/Rules/Bahamut.yaml
+    policy: 国际媒体
+- rule_set:
+    match: https://github.com/Repcz/Tool/raw/X/Egern/Rules/Disney.yaml
+    policy: 国际媒体
+- rule_set:
+    match: https://github.com/Repcz/Tool/raw/X/Egern/Rules/HBO.yaml
+    policy: 国际媒体
+- rule_set:
+    match: https://github.com/Repcz/Tool/raw/X/Egern/Rules/Netflix.yaml
+    policy: 国际媒体
+- rule_set:
+    match: https://github.com/Repcz/Tool/raw/X/Egern/Rules/Spotify.yaml
+    policy: 国际媒体
+- rule_set:
+    match: https://github.com/Repcz/Tool/raw/X/Egern/Rules/PrimeVideo.yaml
+    policy: 国际媒体
+- rule_set:
+    match: https://github.com/Repcz/Tool/raw/X/Egern/Rules/TikTok.yaml
+    policy: 国际媒体
+- rule_set:
+    match: https://github.com/Repcz/Tool/raw/X/Egern/Rules/ProxyGFW.yaml
+    policy: 国外网站
+- rule_set:
+    match: https://github.com/Repcz/Tool/raw/X/Egern/Rules/AppleProxy.yaml
+    policy: 国外网站
+- domain_keyword:
+    match: haijiao
+    policy: 国外网站
+    disabled: false
+- rule_set:
+    match: https://github.com/Repcz/Tool/raw/X/Egern/Rules/Apple.yaml
+    policy: DIRECT
+- rule_set:
+    match: https://github.com/Repcz/Tool/raw/X/Egern/Rules/Lan.yaml
+    policy: DIRECT
+- geoip:
+    match: CN
+    policy: DIRECT
+- default:
+    policy: 兜底分流
+mitm:
+  enabled: true
+  ca_p12: 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
+  ca_passphrase: egern
+modules:
+- url: http://script.hub/file/_start_/https://kelee.one/Tool/Loon/Lpx/Weixin_external_links_unlock.lpx/_end_/Weixin_external_links_unlock.sgmodule?type=loon-plugin&target=surge-module&del=true&jqEnabled=true&pm=.&sni=.
+  enabled: true
+- url: http://script.hub/file/_start_/https://kelee.one/Tool/Loon/Lpx/JD_Price.lpx/_end_/JD_Price.sgmodule?type=loon-plugin&target=surge-module&del=true&jqEnabled=true&pm=.&sni=.
+  enabled: true
+- url: http://script.hub/file/_start_/https://kelee.one/Tool/Loon/Lpx/QQ_Redirect.lpx/_end_/QQ_Redirect.sgmodule?type=loon-plugin&target=surge-module&del=true&jqEnabled=true&pm=.&sni=.
+  enabled: true
+- url: https://raw.githubusercontent.com/158212892/QuantumultXMark/refs/heads/main/My/Egern/modules/pluginhub.yaml
+  enabled: true
+- url: https://raw.githubusercontent.com/ddgksf2013/Modules/main/Adblock.sgmodule
+  enabled: true
+- url: https://raw.githubusercontent.com/app2smile/rules/master/module/bilibili.sgmodule
+  enabled: true
+- url: https://raw.githubusercontent.com/app2smile/rules/master/module/spotify.module
+  enabled: true
+- url: https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/modules/script-hub.surge.sgmodule
+  enabled: true
+- url: https://raw.githubusercontent.com/chavyleung/scripts/master/box/rewrite/boxjs.rewrite.surge.sgmodule
+  enabled: true
+- url: https://github.com/Repcz/Tool/raw/X/Egern/Module/YouTube.yaml
+  enabled: true
+- name: SubStore
+  url: https://raw.githubusercontent.com/sub-store-org/Sub-Store/refs/heads/master/config/Egern.yaml
+  enabled: true
+- url: http://script.hub/file/_start_/https://raw.githubusercontent.com/Yu9191/Rewrite/refs/heads/main/haijiaoshequ.plugin/_end_/haijiaoshequ.sgmodule?type=loon-plugin&target=surge-module&del=true&jqEnabled=true
+  enabled: true
