@@ -192,3 +192,21 @@ proxies:
     ws-opts:
       headers: {}
       path: /aaa
+  - # 美国搬瓦工-Vmess
+    alterId: 0
+    cipher: auto
+    flow: ""
+    name: 美国搬瓦工-Vmess
+    network: ws
+    port: 443
+    server: 104.224.159.55
+    servername: bing.com
+    skip-cert-verify: true
+    sni: bing.com
+    tls: true
+    type: vmess
+    uuid: e59806b9-6bb5-4692-855f-bba12d005da0
+    ws-opts:
+      headers:
+        Host: icook.hk
+      path: /abc
